@@ -1,17 +1,16 @@
-FROM node:22-alpine
+FROM node:22-slim
 
 WORKDIR /app
 
-# Install dependencies first for Docker caching
+# Install git which npm requires for Baileys crypto / signal dependencies
+RUN apt-get update && apt-get install -y git ca-certificates && rm -rf /var/lib/apt/lists/*
+
 COPY package*.json ./
 RUN npm install --omit=dev
 
-# Copy application files
 COPY . .
 
-# Set default data directory
 ENV DATA_DIR=/data
 ENV SESSION_DIR=/data/session
 
-# Run bot
 CMD ["node", "index.js"]

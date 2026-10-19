@@ -1,6 +1,9 @@
-FROM node:22-alpine
+FROM node:22-slim
 
 WORKDIR /app
+
+# Install git which npm requires for Baileys crypto / signal dependencies
+RUN apt-get update && apt-get install -y git ca-certificates && rm -rf /var/lib/apt/lists/*
 
 # Install dependencies from railway_bot
 COPY railway_bot/package*.json ./
