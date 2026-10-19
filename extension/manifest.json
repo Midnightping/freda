@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "DataMart Free Data Auto-Redeemer Pro",
+  "version": "2.1.0",
+  "description": "Pro auto-redeemer bot for beta.datamartgh.shop with zero-loss anti-429 retries, multi-token rotation, reverse scan, and dead-code memory.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "*://beta.datamartgh.shop/*",
+    "*://datamartgh.shop/*",
+    "*://api.datamartgh.shop/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DataMart Auto-Redeemer Pro"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://beta.datamartgh.shop/*",
+        "*://datamartgh.shop/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

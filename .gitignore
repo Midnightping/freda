@@ -1,0 +1,25 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment files
+.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Bot runtime data and sessions
+data/
+session/
+config.json
+dead_codes.json
+
+# Operating System files
+Thumbs.db
+.DS_Store
